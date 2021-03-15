@@ -10,13 +10,15 @@
 
 
 typedef struct dynamicArray{
-    int size;
+    int size; //size of array
     void *element;
     int elementSize;
 } dynArr;
 
 
 // GENERAL ARRAY FUNCTIONS: CONCAT, MAP, WHERE
+
+//concatenation - making a single array from two
 
 dynArr* concatArray(dynArr *arr1, dynArr *arr2 ) {
     dynArr *arr3 = malloc(sizeof(dynArr));
@@ -36,6 +38,8 @@ dynArr* concatArray(dynArr *arr1, dynArr *arr2 ) {
     return arr3;
 }
 
+//map - making an array from results of using some function for original one's elements
+
 dynArr* mapArray(void* (*function)(void*), dynArr *arr1) {
     dynArr *arr2 = malloc(sizeof(dynArr));
     arr2->size = arr1->size;
@@ -52,6 +56,8 @@ dynArr* mapArray(void* (*function)(void*), dynArr *arr1) {
     }
     return arr2;
 }
+
+//where - making an array with "true" filter
 
 dynArr* whereArray(int (*condition)(void*), dynArr *arr1) {
     dynArr *arr2 = malloc(sizeof(dynArr));
