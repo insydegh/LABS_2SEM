@@ -60,15 +60,18 @@ void* makeList(void) {
 // CREATING AN ARRAY FROM FUNCTIONS LIST
 
 dynArr* pointerArrayCreate() {
+    printf("Set array size:");
+    int size;
+    scanf("%d", &size);
     dynArr *array = malloc(sizeof(dynArr));
-    array->size = 9;
+    array->size = size;
     array->elementSize = sizeof(int(**)(int));
     array->element =(int(**)(int))malloc(array->size*array->elementSize);
 
     int (**funcs)(int) = makeList();
 
 
-    for (int i =0; i<9; i++) {
+    for (int i =0; i<size; i++) {
         *(int(**)(int))(array->element+i*array->elementSize) = **(funcs+i);
     }
     return array;
