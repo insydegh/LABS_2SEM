@@ -10,10 +10,7 @@
 #include "strings.h"
 #include "pointer.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdint.h>
+
 
 // MENU FUNCTIONS
 
